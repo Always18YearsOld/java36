@@ -1,0 +1,48 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+    <!--为ServletContext设置全局的参数-->
+    <context-param>
+        <param-name>test</param-name>
+        <param-value>zhangsan</param-value>
+    </context-param>
+
+  <!--配置servlet-->
+  <servlet>
+    <!--自定义的servlet名-->
+    <servlet-name>testServlet</servlet-name>
+    <!--servlet类的完整路径-->
+    <servlet-class>com.hxzy.servlet.TestServlet</servlet-class>
+    <!--为servlet配置的初始化参数-->
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>testSer2</servlet-name>
+    <servlet-class>com.hxzy.servlet.TestServlet2</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>testServlet</servlet-name>
+    <!--这里的/代表着webapp目录-->
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>testSer2</servlet-name>
+    <url-pattern>/test2</url-pattern>
+  </servlet-mapping>
+
+    <!--设置session的有效时间，3分钟-->
+  <session-config>
+    <session-timeout>3</session-timeout>
+  </session-config>
+</web-app>
